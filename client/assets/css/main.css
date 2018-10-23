@@ -2,3 +2,7 @@ body {
   margin: 0;
   background: grey;
 }
+
+.nav {
+  background: #32cd32;
+}
