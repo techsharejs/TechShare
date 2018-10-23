@@ -1,35 +1,39 @@
 const path = require('path');
 
 module.exports = {
-  mode: 'development',
   entry: './client/index.js',
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
-    publicPath: '/dist/'
-  },
-  resolve: { extensions: ['*', '.js','.jsx'] },
-  module: {
-    rules: [
-    {
-      test: /\.(js|jsx)$/,
-      exclude: /node_modules/,
-      loader: 'babel-loader'
-    },
-    {
-      test: /\.css$/,
-      use: [ 'style-loader', 'css-loader' ]
-    },
-    {
-      test: /|.(png|svg|jpg|gif)$/,
-      use: ['file-loader']
-    }
-    ]
-  },
+  mode: 'development',
+  devtool: 'incline-source-map',
   devServer: {
     contentBase: path.join(__dirname, '/public'),
     publicPath: '/dist/',
     port: 3000,
-    historyApiFallback:true,
-  }
+    historyApiFallback: true,
+  },
+  resolve: { extensions: ['*', '.js', '.jsx'] },
+  module: {
+    rules: [
+      {
+        test: /jsx?/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
+        },
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader',
+        ],
+      },
+    ],
+  },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
+    publicPath: '/dist/',
+  },
 }
