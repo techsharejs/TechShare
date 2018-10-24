@@ -1,43 +1,60 @@
-import React, { Component } from 'react';
-import Home from './Home';
-import Login from './Login';
-import Register from './Register';
-import { NavLink, Switch, Route } from 'react-router-dom';
+import React from 'react';
+import { connect } from 'react-redux';
 
-const Navbar = () => (
-  <nav>
-    <ul>
-      <li><NavLink exact activeClassName="current" to='/'>Home</NavLink></li>
-      <li><NavLink exact activeClassName="current" to='/login'>Login</NavLink></li>
-      <li><NavLink exact activeClassName="current" to='/register'>Register</NavLink></li>
-    </ul>
-  </nav>
-);
+import { Link } from 'react-router-dom';
 
-// const Home = () => (
-//   <div className='home'>
-//     <h1>Welcome to your personal Digital Repo</h1>
-//     <p> Feel free to post and search for tech resources</p>
-//   </div>
-// );
+import isLogged from '../modules/actions';
+
+function mapStateToProps(store) {
+  return {
+    ...store,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    isLogged: () => {
+      dispatch(isLogged());
+    },
+  };
+}
 
 
+const Navbar = (props) => {
+  if (props.isLogged === false) {
+    return (
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/register">
+              Register
+            </Link>
+          </li>
+        </ul>
+      </nav>
+    );
+  }
+  return (
+    <nav>
+      <ul>
+        <li>
+          <Link to="/">
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link to="/login">
+            Login
+          </Link>
+        </li>
+      </ul>
+    </nav>
+  );
+};
 
-
-
-// export default Navbar;
-// export default class Navbar extends Component {
-//   render() {
-//     return (
-//       <div>
-//         <header className={styles.nav}>
-//           <Link to='/login'>Login</Link>
-//           <div></div>
-//           <Link to='/register'>Register</Link>
-//         </header>
-//       </div>
-//     )
-//   }
-// }
-
-export default Navbar;
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
