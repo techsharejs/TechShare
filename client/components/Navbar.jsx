@@ -1,22 +1,31 @@
 import React, { Component } from 'react';
-import App from './App';
+import Home from './Home';
 import Login from './Login';
 import Register from './Register';
-import { Link, Route, Router, Switch } from 'react-router-dom';
+import { NavLink, Switch, Route } from 'react-router-dom';
 
-const Navbar = () => {
-  return (
-    <div>
-      <Switch>
-      <Route path='/login' component={Login}/>
-      <Route path='/register' component={Register}/>
-      </Switch>
-    </div>
-  );
-  
-};
+const Navbar = () => (
+  <nav>
+    <ul>
+      <li><NavLink exact activeClassName="current" to='/'>Home</NavLink></li>
+      <li><NavLink exact activeClassName="current" to='/login'>Login</NavLink></li>
+      <li><NavLink exact activeClassName="current" to='/register'>Register</NavLink></li>
+    </ul>
+  </nav>
+);
 
-export default Navbar;
+// const Home = () => (
+//   <div className='home'>
+//     <h1>Welcome to your personal Digital Repo</h1>
+//     <p> Feel free to post and search for tech resources</p>
+//   </div>
+// );
+
+
+
+
+
+// export default Navbar;
 // export default class Navbar extends Component {
 //   render() {
 //     return (
@@ -30,3 +39,5 @@ export default Navbar;
 //     )
 //   }
 // }
+
+export default Navbar;
