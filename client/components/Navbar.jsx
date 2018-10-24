@@ -1,32 +1,60 @@
-import React, { Component } from 'react';
-import App from './App';
-import Login from './Login';
-import Register from './Register';
-import { Link, Route, Router, Switch } from 'react-router-dom';
+import React from 'react';
+import { connect } from 'react-redux';
 
-const Navbar = () => {
+import { Link } from 'react-router-dom';
+
+import isLogged from '../modules/actions';
+
+function mapStateToProps(store) {
+  return {
+    ...store,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    isLogged: () => {
+      dispatch(isLogged());
+    },
+  };
+}
+
+
+const Navbar = (props) => {
+  if (props.isLogged === false) {
+    return (
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/register">
+              Register
+            </Link>
+          </li>
+        </ul>
+      </nav>
+    );
+  }
   return (
-    <div>
-      <Switch>
-      <Route path='/login' component={Login}/>
-      <Route path='/register' component={Register}/>
-      </Switch>
-    </div>
+    <nav>
+      <ul>
+        <li>
+          <Link to="/">
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link to="/login">
+            Login
+          </Link>
+        </li>
+      </ul>
+    </nav>
   );
-  
 };
 
-export default Navbar;
-// export default class Navbar extends Component {
-//   render() {
-//     return (
-//       <div>
-//         <header className={styles.nav}>
-//           <Link to='/login'>Login</Link>
-//           <div></div>
-//           <Link to='/register'>Register</Link>
-//         </header>
-//       </div>
-//     )
-//   }
-// }
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

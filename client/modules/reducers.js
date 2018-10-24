@@ -1,30 +1,34 @@
-// import actions
-import INPUT_CHAR from './types';
 import { combineReducers } from 'redux';
+// import actions
+import * as types from './types';
 
 // set initial state
 const initialState = {
   loginForm: {
     username: '',
-    password: ''
-  }
-}
+    password: '',
+  },
+  isLogged: false,
+};
 
 // reducer
 function changeForm(state = initialState, action) {
   switch (action.type) {
-    case INPUT_CHAR:
-      console.log('JEFF IS LAME, CHANGING CHAR', state)
+    case types.INPUT_CHAR:
       return Object.assign({}, state, {
-        loginForm: action.payload
-      })
+        loginForm: action.payload,
+      });
+    case types.IS_LOGGED:
+      return Object.assign({}, state, {
+        isLogged: true,
+      });
     default:
       return state;
   }
 }
 
 const reducer = combineReducers({
-  changeForm
-})
+  changeForm,
+});
 
 export default reducer;
