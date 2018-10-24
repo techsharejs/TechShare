@@ -33,7 +33,7 @@ bower_components
 build/Release
 
 # Dependency directories
-node_modules/
+./node_modules/
 jspm_packages/
 
 # TypeScript v1 declaration files
@@ -74,4 +74,9 @@ typings/
 
 # FuseBox cache
 .fusebox/
-package-lock.json
+
+./dist/
+
+./package-lock.json
+node_modules/
+/package-lock.json
