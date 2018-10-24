@@ -1,30 +1,28 @@
 import React, { Component } from 'react';
 
-export default class Register extends Component {
-  render() {
-    return(
+const Register = () => (
+  <div className='form'>
+    <h1>Register</h1>
+    <form>
       <div>
-        <div>Sign Up</div>
-          <form>
-            <div>
-              Username: 
-              <input 
-                id="username" 
-                type="text" 
-              />
-            </div>
-            <div>
-              Password: 
-              <input 
-                id="password" 
-                type="text" 
-              />
-            </div>
-            <div>
-              <button> Submit </button>
-            </div>
-        </form>
+        <input 
+          id="registerInput" 
+          type="text"
+          placeholder="Username"
+        />
       </div>
-    )
-  }
-}
+      <div>
+        <input 
+          id="registerInput" 
+          type="text" 
+          placeholder="Password"
+        />
+      </div>
+      <div>
+        <button className="button"> Submit </button>
+      </div>
+      </form>
+  </div>
+);
+
+export default Register;
