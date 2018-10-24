@@ -1,13 +1,30 @@
 import React, { Component } from 'react';
 
-export default class Login extends Component {
-  render() {
-    return(
+const Login = () => (
+  <div className='form'>
+    <h1>Login Here</h1>
+    <div>
+    <form>
       <div>
-        <header>
-         <button>Login</button>
-        </header>
+        <input 
+          id="loginInput" 
+          type="text"
+          placeholder="Username"
+        />
       </div>
-    )
-  }
-}
+      <div>
+        <input 
+          id="loginInput" 
+          type="text"
+          placeholder="Password"
+        />
+      </div>
+      <div>
+        <button className="button"> Submit </button>
+      </div>
+      </form>
+    </div>
+  </div>
+);
+
+export default Login;
