@@ -1,6 +1,23 @@
 import React from 'react';
 import '../assets/css/App.css';
 import { NavLink, Switch, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import inputChar from './../modules/actions';
+
+function mapStateToProps(store) {
+  return {
+    ...store
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    inputChar: (event) => {
+      event.preventDefault();
+      dispatch(inputChar(event.target.value))
+    }
+  }
+}
 
 const App = () => (
   <div className='app'>
@@ -27,23 +44,25 @@ const Home = () => (
   </div>
 );
 
-const Login = () => (
+const Login = (props) => (
   <div className='form'>
     <h1>Login Here</h1>
     <div>
     <form>
       <div>
         <input 
-          id="loginInput" 
+          id="username" 
           type="text"
           placeholder="Username"
         />
       </div>
       <div>
         <input 
-          id="loginInput" 
+          id="password" 
           type="text"
+          defaultValue={props.changeForm.loginForm.password}
           placeholder="Password"
+          onChange={props.inputChar}
         />
       </div>
       <div>
@@ -87,4 +106,4 @@ const Main = () => (
   </Switch>
 );
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

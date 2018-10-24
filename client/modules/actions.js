@@ -1,11 +1,11 @@
-/**
- * @module actions.js
- * @author
- * @description Action Creators
- */
+import INPUT_CHAR from './types'
 
-// action types
+function inputChar(text) {
+    const action = {
+      type: INPUT_CHAR,
+      payload: text
+    }
+    return action;
+  }
 
-// actions
-
- export default 
+export default inputChar;
