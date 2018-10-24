@@ -1,0 +1,94 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+.app {
+  width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  background-color: #23cd23;
+  margin-bottom: 20px;
+}
+
+nav ul li {
+  padding: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.current {
+  border-bottom: 4px solid #000;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 15px;
+}
+
+.form {
+	width: 800px;
+	margin: 50px auto 20px;
+}
+
+#loginInput {
+	width: 100%;
+	height: 60px;
+	background: none;
+	border: none;
+	border-bottom: 1px solid #32cd32;
+	outline: none;
+	font: 300 28px 'Ubuntu', sans-serif;
+	padding: 20px;
+	color: #fff;
+}
+
+#registerInput {
+	width: 100%;
+	height: 60px;
+	background: none;
+	border: none;
+	border-bottom: 1px solid #32cd32;
+	outline: none;
+	font: 300 28px 'Ubuntu', sans-serif;
+	padding: 20px;
+	color: #fff;
+}
+
+.button {
+  margin: 5px;
+  padding: 10px 20px;
+  font: 300 24px 'Ubuntu', sans-serif;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
