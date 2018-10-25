@@ -45,6 +45,52 @@ function getCategory(req, res, next) {
     });
 }
 
+function getTopics(req, res, next) {
+  db.any('SELECT * FROM topics')
+    .then(data => {
+      res.status(200).json({
+        status: 'success',
+        data,
+        message: 'Retrieved ALL topics',
+      });
+    })
+    .catch(err => {
+      return next(err);
+    });
+}
+function getInfo(req, res, next) {
+  db.any('SELECT * FROM info')
+    .then(data => {
+      res.status(200).json({
+        status: 'success',
+        data,
+        message: 'Retrieved ALL topics',
+      });
+    })
+    .catch(err => {
+      return next(err);
+    });
+}
+
+function addInfo(req, res, next) {
+  // SCRUB ME ZADDDY
+  const { title, desc, topic, info } = req.body;
+
+  db.one(`INSERT INTO info(title, description, topic, info)
+          VALUES(${title}, ${desc}, ${topic}, ${info})`)
+    .then(data => {
+      res.status(200).json({
+        status: 'successfully added to database',
+      });
+    })
+    .catch(err => {
+      return next(err);
+    });
+}
+
 module.exports = {
   getCategory,
+  getTopics,
+  getInfo,
+  addInfo,
 };

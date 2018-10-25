@@ -1,19 +1,16 @@
-const express = require('express');
-const path = require('path');
+
+const express = require("express");
+
 const app = express();
 
-const db = require('./queries');
+const db = require("./queries");
 
 const PORT = 8080;
 
-app.use(express.static(path.join(__dirname + './../')));
 
-app.get('/', (req, res) => {
-  res.setHeader('Content-Type', 'text/html');
-  res.sendFile(path.join(__dirname + './../public/index.html'));
-});
-
-app.get('/categories', db.getCategory);
+app.get('/', db.getCategory);
+// app.get('/home/frontend', db.getTopics);
+// app.get('/topics', db.getTopics);
 
 app.listen(PORT, () => {
   console.log(`Listening to PORT: ${PORT}`);
