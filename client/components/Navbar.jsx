@@ -21,13 +21,18 @@ function mapDispatchToProps(dispatch) {
 
 
 const Navbar = (props) => {
-  if (props.isLogged === false) {
+  if (props.changeForm.isLogged === false) {
     return (
       <nav>
         <ul>
           <li>
             <Link to="/">
               Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/login">
+              Login
             </Link>
           </li>
           <li>
@@ -49,7 +54,7 @@ const Navbar = (props) => {
         </li>
         <li>
           <Link to="/login">
-            Login
+            Sign out
           </Link>
         </li>
       </ul>
