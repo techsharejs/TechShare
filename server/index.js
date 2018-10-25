@@ -11,7 +11,9 @@ app.use(express.static(path.join(__dirname + './../')));
 app.get('/', (req, res) => {
   res.setHeader('Content-Type', 'text/html');
   res.sendFile(path.join(__dirname + './../public/index.html'));
-}, db.getCategory);
+});
+
+app.get('/categories', db.getCategory);
 
 app.listen(PORT, () => {
   console.log(`Listening to PORT: ${PORT}`);

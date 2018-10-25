@@ -32,7 +32,7 @@ const connection = {
 const db = pgp(connection);
 
 function getCategory(req, res, next) {
-  db.any('SELECT * FROM topics')
+  db.any('SELECT * FROM categories')
     .then(function(data) {
       res.status(200).json({
         status: 'success',
