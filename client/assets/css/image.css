@@ -1,0 +1,24 @@
+img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 16em;
+  height: 10em;
+  margin: 1em;
+  z-index: 0;
+  cursor: pointer;
+}
+
+img:hover {
+  box-shadow: 0 0 5px 6px rgba(0, 140, 186, 0.5);
+}
+.imgTitle {
+  z-index: 1;
+  color: white;
+  /* font-weight: bold; */
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  text-decoration: underline;
+  text-decoration-color: #23cd23;
+}

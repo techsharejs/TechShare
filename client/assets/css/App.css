@@ -2,7 +2,9 @@ html {
   box-sizing: border-box;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: inherit;
   padding: 0;
   margin: 0;
@@ -43,52 +45,73 @@ p {
 }
 
 .form {
-	width: 800px;
-	margin: 50px auto 20px;
+  width: 800px;
+  margin: 50px auto 20px;
 }
 
 #loginInput {
-	width: 100%;
-	height: 60px;
-	background: none;
-	border: none;
-	border-bottom: 1px solid #32cd32;
-	outline: none;
-	font: 300 28px 'Ubuntu', sans-serif;
-	padding: 20px;
-	color: #fff;
+  width: 100%;
+  height: 60px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #32cd32;
+  outline: none;
+  font: 300 28px "Ubuntu", sans-serif;
+  padding: 20px;
+  color: #fff;
 }
 
 #registerInput {
-	width: 100%;
-	height: 60px;
-	background: none;
-	border: none;
-	border-bottom: 1px solid #32cd32;
-	outline: none;
-	font: 300 28px 'Ubuntu', sans-serif;
-	padding: 20px;
-	color: #fff;
+  width: 100%;
+  height: 60px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #32cd32;
+  outline: none;
+  font: 300 28px "Ubuntu", sans-serif;
+  padding: 20px;
+  color: #fff;
 }
 
 .button {
   margin: 5px;
   padding: 10px 20px;
-  font: 300 24px 'Ubuntu', sans-serif;
+  font: 300 24px "Ubuntu", sans-serif;
   text-align: center;
   cursor: pointer;
   outline: none;
   color: #fff;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   border: none;
   border-radius: 15px;
   box-shadow: 0 9px #999;
 }
 
-.button:hover {background-color: #3e8e41}
+.button:hover {
+  background-color: #3e8e41;
+}
 
 .button:active {
   background-color: #3e8e41;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
+}
+.home {
+  text-align: center;
+}
+.categories {
+  border: 1px solid white;
+  width: 70%;
+  height: 100%;
+  border-radius: 9px;
+  margin: 0 auto;
+  padding: 2em;
+}
+.parentDiv {
+  display: block;
+}
+
+.topics {
+  height: 90%;
+  border: 1px solid white;
 }
