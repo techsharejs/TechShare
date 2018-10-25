@@ -4,12 +4,12 @@ module.exports = {
   entry: './client/index.js',
   mode: 'development',
   devtool: 'incline-source-map',
-  devServer: {
-    contentBase: path.join(__dirname, '/public'),
-    publicPath: '/dist/',
-    port: 3000,
-    historyApiFallback: true,
-  },
+  // devServer: {
+  //   contentBase: path.join(__dirname, '/public'),
+  //   publicPath: '/dist/',
+  //   port: 3000,
+  //   historyApiFallback: true,
+  // },
   resolve: { extensions: ['*', '.js', '.jsx'] },
   module: {
     rules: [

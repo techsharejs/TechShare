@@ -1,19 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
+
+import { Switch, Route } from 'react-router-dom';
+
 import Navbar from './Navbar';
+import Home from './Home';
+import Login from './Login';
+import Register from './Register';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-  }
+import '../assets/css/App.css';
 
-  render() {
-    return(
-      <div>
-        <Navbar/>
-        <h1>Hell0 world</h1>
-      </div>
-    );
-  }
-}
+const App = () => {
+  return (
+    <div>
+      <Navbar />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/login" component={Login} />
+        <Route path="/register" component={Register} />
+      </Switch>
+    </div>
+  );
+};
 
 export default App;

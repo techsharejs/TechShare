@@ -1,16 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-
+import { render } from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
 
-import App from './components/App.jsx';
+import App from './components/App';
+import './assets/css/main.css';
 
-// const store = createStore();
+import store from './modules/store';
 
-ReactDOM.render(
-  // <Provider store={store}>
-    <App />,
-  // </Provider>,
+render(
+  <BrowserRouter>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </BrowserRouter>,
   document.getElementById('content'),
 );

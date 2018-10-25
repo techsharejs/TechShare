@@ -1,17 +1,32 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 
-export default class Login extends Component {
-  render() {
-    return(
-      <div>
-        <header>
-          {/* <Link to='/login'>
-            Login
-          </Link> */}
-          Login
-        </header>
-      </div>
-    )
-  }
-}
+const Login = () => (
+  <div className="form">
+    <h1>Login Here</h1>
+    <div>
+      <form>
+        <div>
+          <input
+            id="loginInput"
+            type="text"
+            placeholder="Username"
+          />
+        </div>
+        <div>
+          <input
+            id="loginInput"
+            type="text"
+            placeholder="Password"
+          />
+        </div>
+        <div>
+          <button className="button" type="button">
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+);
+
+export default Login;
